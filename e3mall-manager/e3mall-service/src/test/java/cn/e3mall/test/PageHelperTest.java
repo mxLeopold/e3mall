@@ -12,6 +12,7 @@ import com.github.pagehelper.PageInfo;
 
 import cn.e3mall.mapper.TbItemMapper;
 import cn.e3mall.pojo.TbItem;
+import cn.e3mall.pojo.TbItemExample;
 
 public class PageHelperTest {
 
@@ -20,7 +21,10 @@ public class PageHelperTest {
 		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring/applicationContext*.xml");
 		TbItemMapper tbItemMapper = context.getBean(TbItemMapper.class);
 		PageHelper.startPage(1, 10);
-		List<TbItem> rows = tbItemMapper.selectByExample(null);
+		
+		TbItemExample example = new TbItemExample();
+//		List<TbItem> rows = tbItemMapper.selectByExample(null);
+		List<TbItem> rows = tbItemMapper.selectByExample(example);
 		PageInfo<TbItem> pageInfo = new PageInfo<>(rows);
 		System.out.println(pageInfo.getTotal());
 		System.out.println(pageInfo.getPages());

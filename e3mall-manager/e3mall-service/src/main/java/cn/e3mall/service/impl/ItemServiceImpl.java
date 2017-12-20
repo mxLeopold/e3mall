@@ -11,6 +11,7 @@ import com.github.pagehelper.PageInfo;
 import cn.e3mall.mapper.TbItemMapper;
 import cn.e3mall.page.DataGridResult;
 import cn.e3mall.pojo.TbItem;
+import cn.e3mall.pojo.TbItemExample;
 import cn.e3mall.service.ItemService;
 
 @Service
@@ -38,8 +39,10 @@ public class ItemServiceImpl implements ItemService {
 		PageHelper.startPage(page, rows);
 		/**
 		 * 第一条查询语句，带有分页
+		 * 	查询所有时，条件可以为空的example对象，但不能为null
 		 */
-		List<TbItem> resultRows = tbItemMapper.selectByExample(null);
+		TbItemExample example = new TbItemExample();
+		List<TbItem> resultRows = tbItemMapper.selectByExample(example);
 		/**
 		 * 包装查询结果resultRows
 		 */
