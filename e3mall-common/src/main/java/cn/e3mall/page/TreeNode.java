@@ -1,6 +1,8 @@
 package cn.e3mall.page;
 
-public class TreeNode {
+import java.io.Serializable;
+
+public class TreeNode implements Serializable {
 
 	private long id;
 	private String text;
