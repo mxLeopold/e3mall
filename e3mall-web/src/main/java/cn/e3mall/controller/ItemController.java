@@ -9,6 +9,7 @@ import cn.e3mall.page.DataGridResult;
 import cn.e3mall.service.ItemService;
 
 @Controller
+@RequestMapping("/item")
 public class ItemController {
 
 	@Autowired
@@ -20,7 +21,7 @@ public class ItemController {
 	 * 			{total:"",rows:[{},{}]}
 	 * 需要关联依赖common中的pojo
 	 */
-	@RequestMapping("/item/list")
+	@RequestMapping("/list")
 	@ResponseBody
 	public DataGridResult list(int page, int rows) {
 		System.out.println(123);
