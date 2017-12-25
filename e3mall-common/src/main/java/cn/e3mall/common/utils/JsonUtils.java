@@ -1,4 +1,4 @@
-package cn.e3mall.utils;
+package cn.e3mall.common.utils;
 
 import java.util.List;
 
